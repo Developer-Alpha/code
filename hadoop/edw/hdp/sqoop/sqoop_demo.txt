@@ -14,7 +14,8 @@ sqoop import \
   --password=itversity \
   --table departments \
   --as-textfile \
-  --target-dir=/user/root/departments
+  --target-dir=/user/root/departments \
+  --driver com.mysql.jdbc.Driver
   
 sqoop eval \
   --connect "jdbc:mysql://sandbox.hortonworks.com:3306/retail_db" \
@@ -37,7 +38,8 @@ sqoop import-all-tables \
   --username=retail_dba \
   --password=hadoop \
   --as-avrodatafile \
-  --warehouse-dir=/apps/hive/warehouse/retail_stage.db
+  --warehouse-dir=/apps/hive/warehouse/retail_stage.db \
+   --driver com.mysql.jdbc.Driver
 
 --Default
 sqoop import \
@@ -62,7 +64,8 @@ sqoop import \
   --password=hadoop \
   --table departments \
   --as-avrodatafile \
-  --target-dir=/user/root/departments
+  --target-dir=/user/root/departments \
+   --driver com.mysql.jdbc.Driver
 
 -- A file with extension avsc will be created under the directory from which sqoop import is executed
 -- Copy avsc file to HDFS location
